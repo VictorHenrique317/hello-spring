@@ -11,6 +11,9 @@ public class Main {
                     new ClassPathXmlApplicationContext("beans.xml")){
             NumberGeneratorImpl generator = context.getBean("numberGenerator", NumberGeneratorImpl.class);
             System.out.println(generator.next());
+            GameImpl game = context.getBean(GameImpl.class);
+            game.reset();
+            log.info(String.valueOf(game.getNumber()));
         }
     }
 }

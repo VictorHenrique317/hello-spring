@@ -1,3 +1,5 @@
+package app;
+
 public interface Game {
     int getNumber();
     int getGuess();
@@ -12,4 +14,6 @@ public interface Game {
     boolean isGameWon();
 
     boolean isGameLost();
+
+    int getGuessCount();
 }

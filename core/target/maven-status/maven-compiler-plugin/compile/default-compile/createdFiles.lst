@@ -1,1 +1,7 @@
-Main.class
+app/NumberGenerator.class
+app/MessageGenerator.class
+app/MessageGeneratorImpl.class
+app/AppConfig.class
+app/NumberGeneratorImpl.class
+app/Game.class
+app/GameImpl.class

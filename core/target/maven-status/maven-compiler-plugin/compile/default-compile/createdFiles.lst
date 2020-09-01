@@ -1,7 +1,10 @@
+app/config/GuessCount.class
 app/NumberGenerator.class
 app/MessageGenerator.class
+app/config/GameConfig.class
 app/MessageGeneratorImpl.class
-app/AppConfig.class
+app/config/MinNumber.class
 app/NumberGeneratorImpl.class
+app/config/MaxNumber.class
 app/Game.class
 app/GameImpl.class

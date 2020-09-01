@@ -1,5 +1,8 @@
 package app;
 
+import app.config.GuessCount;
+import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,58 +14,32 @@ import javax.annotation.PostConstruct;
 public class GameImpl implements Game {
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
+    private final NumberGenerator numberGenerator;
+    @Getter private final int guessCount;
+    @Getter private int number;
+    @Getter @Setter private int guess;
+    @Getter private int smallest;
+    @Getter private int biggest;
+    @Getter private int remainingGuesses;
+    @Getter private boolean validNumberRange = true;
+
     @Autowired
-    private NumberGenerator numberGenerator;
-    private int guessCount = 10;
-    private int number;
-    private int guess;
-    private int smallest;
-    private int biggest;
-    private int remainingGuesses;
-    private boolean validNumberRange = true;
+    public GameImpl(NumberGenerator numberGenerator, @GuessCount int guessCount) {
+        this.numberGenerator = numberGenerator;
+        this.guessCount = guessCount;
+    }
 
     @PostConstruct
     @Override
     public void reset() {
-        smallest = 0;
+        smallest = numberGenerator.getMinNumber();
+        biggest = numberGenerator.getMaxNumber();
+
         guess = 0;
         remainingGuesses = guessCount;
-        biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
 
     }
-
-    @Override
-    public int getNumber() {
-        return number;
-    }
-
-    @Override
-    public int getGuess() {
-        return guess;
-    }
-
-    @Override
-    public void setGuess(int guess) {
-        this.guess = guess;
-    }
-
-    @Override
-    public int getSmallest() {
-        return smallest;
-    }
-
-    @Override
-    public int getBiggest() {
-        return biggest;
-    }
-
-    @Override
-    public int getRemainingGuesses() {
-        return remainingGuesses;
-    }
-
-
 
     @Override
     public void check() {
@@ -79,11 +56,6 @@ public class GameImpl implements Game {
     }
 
     @Override
-    public boolean isValidNumberRange() {
-        return validNumberRange;
-    }
-
-    @Override
     public boolean isGameWon() {
         return guess == number;
     }
@@ -94,10 +66,5 @@ public class GameImpl implements Game {
 
     private void checkValidNumberRange(){
         validNumberRange = (guess >= smallest) && (guess <= biggest);
-    }
-
-    @Override
-    public int getGuessCount() {
-        return guessCount;
     }
 }

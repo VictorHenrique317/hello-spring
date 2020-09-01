@@ -1,10 +1,16 @@
 package app;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MessageGeneratorImpl implements MessageGenerator{
+    private final GameImpl game;
+
     @Autowired
-    private GameImpl game;
+    public MessageGeneratorImpl(GameImpl game) {
+        this.game = game;
+    }
 
     @Override
     public String getMainMessage() {

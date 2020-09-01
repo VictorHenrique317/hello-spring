@@ -1,7 +1,6 @@
 package app;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -10,13 +9,17 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
+@Slf4j
 public class ConsoleNumberGuess{
-    private Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
-    @Autowired
-    private Game game;
+    private final Game game;
+    private final MessageGenerator messageGenerator;
 
     @Autowired
-    private MessageGenerator messageGenerator;
+    public ConsoleNumberGuess(Game game, MessageGenerator messageGenerator) {
+        this.game = game;
+        this.messageGenerator = messageGenerator;
+    }
+
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         log.info("onNumberGuess");

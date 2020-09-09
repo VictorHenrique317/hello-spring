@@ -1,0 +1,7 @@
+app/common/GameService.class
+app/common/GameServiceImpl.class
+app/utils/AttributeNames.class
+app/utils/GameMappings.class
+app/WebMain.class
+app/controller/GameController.class
+app/utils/ViewNames.class

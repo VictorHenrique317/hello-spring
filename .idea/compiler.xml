@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
+        <module name="web" />
         <module name="terminal" />
       </profile>
     </annotationProcessing>
@@ -15,5 +16,12 @@
       <module name="console" target="11" />
       <module name="Console" target="11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="core" options="-parameters" />
+      <module name="terminal" options="-parameters" />
+      <module name="web" options="-parameters" />
+    </option>
   </component>
 </project>

@@ -1,0 +1,4 @@
+<thlogic>
+    <attr sel="footer" th:fragment="footerFragment"/>
+    <attr sel="p" th:text="|#{game.footer} Victor Henrique|"/>
+</thlogic>

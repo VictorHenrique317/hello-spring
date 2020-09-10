@@ -26,6 +26,11 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
+    public boolean isGameWon() {
+        return game.isGameWon();
+    }
+
+    @Override
     public boolean isGameOver() {
         return game.isGameLost();
     }

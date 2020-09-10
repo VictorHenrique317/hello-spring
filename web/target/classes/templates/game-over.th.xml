@@ -1,0 +1,12 @@
+<thlogic>
+    <attr sel="head" th:replace="~{fragments/head-frag :: headFragment}"/>
+    <attr sel="#title" th:text="#{game.title}"/>
+    <attr sel="#gameOver" th:text="#{game.over}"/>
+    <attr sel="#resultMessage"
+          th:text="${__${T(app.utils.AttributeNames).RESULT_MESSAGE}__}"/>
+    <attr sel="#playAgain" th:href="@{__${T(app.utils.GameMappings).RESTART}__}"/>
+    <attr sel="#playAgain" th:text="#{game.play.again}"/>
+    <attr sel="#home" th:href="@{__${T(app.utils.GameMappings).HOME}__}"/>
+    <attr sel="#home" th:text="#{game.home}"/>
+    <attr sel="footer" th:replace="~{fragments/footer-frag :: footerFragment}"/>
+</thlogic>

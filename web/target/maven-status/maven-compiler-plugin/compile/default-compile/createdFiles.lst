@@ -1,7 +1,10 @@
-app/common/GameService.class
-app/common/GameServiceImpl.class
+interceptor/RequestInterceptor.class
+app/utils/th/DecoupledLogicSetup.class
 app/utils/AttributeNames.class
-app/utils/GameMappings.class
+app/config/WebConfig.class
 app/WebMain.class
 app/controller/GameController.class
+app/common/GameService.class
+app/common/GameServiceImpl.class
+app/utils/GameMappings.class
 app/utils/ViewNames.class

@@ -1,0 +1,13 @@
+<thlogic>
+    <attr sel="head"
+          th:replace="~{fragments/head-frag :: headFragment}"/>
+    <attr sel="#gameTitle" th:text="#{game.title}"/>
+    <attr sel="#mainMessage"
+          th:text="${__${T(app.utils.AttributeNames).MAIN_MESSAGE}__}"/>
+    <attr sel="#resultMessage"
+          th:text="${__${T(app.utils.AttributeNames).RESULT_MESSAGE}__}"/>
+    <attr sel="form" th:action="@{__${T(app.utils.GameMappings).PLAY}__}"/>
+    <attr sel="#enterGuessLabel" th:text="#{game.enter.guess}"/>
+    <attr sel="#submitButton" th:value="#{game.submit}"/>
+    <attr sel="footer" th:replace="~{fragments/footer-frag :: footerFragment}"/>
+</thlogic>

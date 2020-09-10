@@ -1,0 +1,3 @@
+<thlogic>
+    <attr sel="title" th:text="#{game.title}"/>
+</thlogic>

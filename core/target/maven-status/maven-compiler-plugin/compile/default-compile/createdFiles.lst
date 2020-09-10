@@ -1,8 +1,8 @@
-app/config/GuessCount.class
 app/NumberGenerator.class
+app/MessageGeneratorImpl.class
+app/config/GuessCount.class
 app/MessageGenerator.class
 app/config/GameConfig.class
-app/MessageGeneratorImpl.class
 app/config/MinNumber.class
 app/NumberGeneratorImpl.class
 app/config/MaxNumber.class

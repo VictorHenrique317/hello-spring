@@ -20,11 +20,23 @@ public class GameController {
         this.gameService = gameService;
     }
 
+    @GetMapping(GameMappings.HOME)
+    public String home(){
+        gameService.reset();
+        return ViewNames.HOME;
+    }
+
+    @GetMapping(GameMappings.RESTART)
+    public String restart(){
+        gameService.reset();
+        return GameMappings.REDIRECT_PLAY;
+    }
+
     @GetMapping(GameMappings.PLAY)
     public String play(Model model){
         model.addAttribute(AttributeNames.MAIN_MESSAGE, gameService.getMainMessage());
         model.addAttribute(AttributeNames.RESULT_MESSAGE, gameService.getResultMessage());
-        if (gameService.isGameOver()){
+        if (gameService.isGameOver() || gameService.isGameWon()){
             return ViewNames.GAME_OVER;
         }else{
             return  ViewNames.PLAY;
